@@ -19,6 +19,14 @@ pipeline {
       }
     }
 
+    stage('Deliver') {
+      steps {
+        sh './jenkins/scripts/deliver.sh'
+        input 'Finish using the website?'
+        sh './jenkins/scripts/kill.sh'
+      }
+    }
+
   }
   environment {
     CI = 'true'
