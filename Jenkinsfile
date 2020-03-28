@@ -13,5 +13,14 @@ pipeline {
       }
     }
 
+    stage('Test') {
+      steps {
+        sh './jenkins/scrips/test.sh'
+      }
+    }
+
+  }
+  environment {
+    CI = 'true'
   }
 }
